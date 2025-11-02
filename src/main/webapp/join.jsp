@@ -42,6 +42,7 @@
             border-radius: 10px;
             transition: 0.3s;
             width: 100%;
+            padding: 10px;
         }
 
         .btn-submit:hover {
@@ -66,7 +67,7 @@
 <div class="container">
     <h2>सदस्य नोंदणी फॉर्म</h2>
 
-    <form action="Usercontroller" method="get" accept-charset="UTF-8">
+    <form action="SendEmailServlet" method="post" accept-charset="UTF-8">
         <div class="mb-3">
             <label for="name" class="form-label">नाव</label>
             <input type="text" id="name" name="name" class="form-control" placeholder="आपले पूर्ण नाव मराठीत लिहा" required>
@@ -86,12 +87,11 @@
             <label for="age" class="form-label">वय</label>
             <input type="number" id="age" name="age" class="form-control" min="10" max="120" placeholder="आपले वय" required>
         </div>
-        
-          <div class="mb-3">
+
+        <div class="mb-3">
             <label for="email" class="form-label">ई-मेल</label>
             <input type="email" id="email" name="email" class="form-control" placeholder="उदा. rohan@example.com" required>
         </div>
-
 
         <button type="submit" class="btn btn-submit">नोंदणी करा</button>
     </form>

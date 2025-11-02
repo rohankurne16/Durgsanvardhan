@@ -93,6 +93,12 @@
         .header h1 {
             font-size: 2.5rem;
             margin: 0 0 10px 0;
+            color: red;
+            font-weight: bold;
+             transition: 0.3s ease-in-out;
+        }
+        .header h1:hover{
+        	color:black;
         }
 
         .header p {
@@ -104,12 +110,11 @@
         /* Gallery Cards Border */
 /* Card Image Border */
 .carousel-inner img {
-    border: 3px solid black;  /* Black border */
-    border-radius: 5px;       /* Slightly rounded corners */
-    display: block;
+    border: 3px solid black;
+    border-radius: 5px;
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: cover;   /* ✅ Now image fills full height & width */
 }
 
 
@@ -136,6 +141,22 @@
             padding: 15px;
             margin-top: 50px;
         }
+        /* Apply inner spacing to bottom gallery images */
+section:last-of-type .carousel-inner {
+    padding: 10px;              /* Inner spacing (white space inside carousel) */
+    background-color: #fff;     /* Optional: white background around images */
+    border-radius: 10px;        /* Smooth rounded edges */
+}
+
+section:last-of-type .carousel-inner img {
+    border: 2px solid #000;     /* Keep your black border */
+    border-radius: 8px;
+    width: 100%;
+    height: 480px;              /* Adjust height a bit since we added padding */
+    object-fit: contain;        /* So image fits nicely within */
+    background-color: #f9f9f9;  /* Slightly off-white backdrop for a framed look */
+}
+        
     </style>
 </head>
 <body>
@@ -177,15 +198,15 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="images/sajj1.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 1">
-                        <div class="carousel-caption">श्री सज्जनगड संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री सज्जनगड संवर्धन मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/sajj2.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 2">
-                        <div class="carousel-caption">श्री सज्जनगड संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री सज्जनगड संवर्धन मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/aj3.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 3">
-                        <div class="carousel-caption">श्री सज्जनगड संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री सज्जनगड संवर्धन मोहीम</div>
                     </div>
                 </div>
             </div>
@@ -197,15 +218,15 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="images/aj1.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 1">
-                        <div class="carousel-caption">श्री अजिंक्यतारा संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री अजिंक्यतारा संवर्धन मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/aj2.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 2">
-                        <div class="carousel-caption">श्री अजिंक्यतारा संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री अजिंक्यतारा संवर्धन मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/aj4.png" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 3">
-                        <div class="carousel-caption">श्री अजिंक्यतारा संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री अजिंक्यतारा संवर्धन मोहीम</div>
                     </div>
                 </div>
             </div>
@@ -217,48 +238,49 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="images/nw1.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 1">
-                        <div class="carousel-caption">श्री अजिंक्यतारा संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री अजिंक्यतारा संवर्धन मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/nw2.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 2">
-                        <div class="carousel-caption">श्री अजिंक्यतारा संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री अजिंक्यतारा संवर्धन मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/nw3.jpg" class="d-block w-100" style="height:500px; object-fit:contain;" alt="Image 3">
-                        <div class="carousel-caption">श्री अजिंक्यतारा संवर्धन मोहीम</div>
+                        <div class="carousel-caption">🏔️ श्री अजिंक्यतारा संवर्धन मोहीम</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<br>
+<br>
 
-<br> <br> 
-<section class="containers my-5">
-    <div class="row g-4 justify-content-center">
+<section class="container my-5">
+    <div class="row g-4.5">
         <!-- Card 1 -->
         <div class="col-md-4">
             <div id="carouselCard1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="images/santo.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 1">
-                        <div class="carousel-caption">दुर्ग भ्रमंती मोहीम</div>
+                        <div class="carousel-caption">🏞️ दुर्गभ्रमंती मोहीम</div>
                     </div>
                     <div class="carousel-item">
-                        <img src="images/santo2.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 2">
-                        <div class="carousel-caption">दुर्ग भ्रमंती मोहीम</div>
+                        <img src="images/santo1.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 2">
+                        <div class="carousel-caption">🏞️ दुर्गभ्रमंती मोहीम</div>
                     </div>
                     <div class="carousel-item">
-                        <img src="images/rj1.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 3">
-                        <div class="carousel-caption">दुर्ग भ्रमंती मोहीम</div>
+                        <img src="images/santo2.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 3">
+                        <div class="carousel-caption">🏞️ दुर्गभ्रमंती मोहीम</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/rj1.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 2">
+                        <div class="carousel-caption">🏞️ दुर्गभ्रमंती मोहीम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/rj2.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 3">
-                        <div class="carousel-caption">दुर्ग भ्रमंती मोहीम</div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="images/santo1.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 3">
-                        <div class="carousel-caption">दुर्ग भ्रमंती मोहीम</div>
+                        <div class="carousel-caption">🏞️ दुर्गभ्रमंती मोहीम</div>
                     </div>
                 </div>
             </div>
@@ -270,22 +292,44 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="images/ss1.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 1">
-                        <div class="carousel-caption">दुर्गसंवर्धन जनजागृती मोहीम</div>
+                        <div class="carousel-caption">📢 दुर्गसंवर्धन जनजागृती उपक्रम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/ss2.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 2">
-                        <div class="carousel-caption">दुर्गसंवर्धन जनजागृती मोहीम</div>
+                        <div class="carousel-caption">📢 दुर्गसंवर्धन जनजागृती उपक्रम</div>
                     </div>
                     <div class="carousel-item">
                         <img src="images/ss3.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 3">
-                        <div class="carousel-caption">दुर्गसंवर्धन जनजागृती मोहीम</div>
+                        <div class="carousel-caption">📢 दुर्गसंवर्धन जनजागृती उपक्रम</div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div id="carouselCard3" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                  `
+                    <div class="carousel-item active">
+                        <img src="images/k2.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 2">
+                        <div class="carousel-caption">🧱 दुर्ग बांधणी स्पर्धा आयोजन</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/k3.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 3">
+                        <div class="carousel-caption">🧱 दुर्ग बांधणी स्पर्धा आयोजन</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/k4.jpg" class="d-block w-100" style="height:500px; object-fit:cover;" alt="Image 4">
+                        <div class="carousel-caption">🧱 दुर्ग बांधणी स्पर्धा आयोजन</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<br> <br> 
 
 
 <!-- Footer -->

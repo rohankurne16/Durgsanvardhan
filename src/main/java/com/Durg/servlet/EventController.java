@@ -1,6 +1,7 @@
 package com.Durg.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,7 +19,13 @@ public class EventController extends HttpServlet {
     private EventDao eventDao = new EventDao();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Event> eventList = eventDao.getAllEvents();
+        List<Event> eventList = null;
+		try {
+			eventList = eventDao.getAllEvents();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         request.setAttribute("eventList", eventList);
         request.getRequestDispatcher("events.jsp").forward(request, response);
     }

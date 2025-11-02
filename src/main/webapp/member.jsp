@@ -17,10 +17,14 @@
         	 font-size: 2.5rem;
            margin: 0 0 10px 0;
           text-decoration:none;
-          font-weight:normal;
-           color: #333;
            padding: 50px 20px;
            text-align: center;
+           color: red;
+            font-weight: bold;
+             transition: 0.3s ease-in-out;
+       }
+       .container h1:hover{
+       	color:black;
        }
 
        
@@ -88,6 +92,7 @@
             font-weight: bold;
             font-size: 25px;
             transition: all 0.3s ease-in-out;
+            
         }
 
         .title:hover {

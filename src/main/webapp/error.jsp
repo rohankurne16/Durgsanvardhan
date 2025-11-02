@@ -64,7 +64,7 @@
     <div class="error-box">
         <h2>⚠️ नोंदणी अयशस्वी</h2>
         <p>काहीतरी चुकले आहे. कृपया पुन्हा प्रयत्न करा.</p>
-        <a href="register.jsp" class="btn-back">← पुन्हा नोंदणी करा</a>
+        <a href="join.jsp" class="btn-back">← पुन्हा नोंदणी करा</a>
     </div>
 </body>
 </html>

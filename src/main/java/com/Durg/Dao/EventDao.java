@@ -1,49 +1,72 @@
 package com.Durg.Dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import com.Durg.bin.Event;
 
 public class EventDao {
 
-    // Render environment variables वापरून DB connection
-    private String jdbcURL = "jdbc:mysql://" + System.getenv("DB_HOST") + ":" + System.getenv("DB_PORT") + "/" + System.getenv("DB_NAME") + "?useSSL=false&serverTimezone=UTC";
-    private String jdbcUsername = System.getenv("DB_USER");
-    private String jdbcPassword = System.getenv("DB_PASSWORD");
+    // ✅ Insert new event
+    public boolean insert(Event e) throws ClassNotFoundException, SQLException {
 
-    private static final String SELECT_ALL_EVENTS = "SELECT * FROM events ORDER BY event_date ASC";
+        // Load JDBC driver
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
-    protected Connection getConnection() throws SQLException {
-        Connection connection = null;
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // JDBC driver load
-            connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        // ✅ Localhost connection
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/durg?useSSL=false&serverTimezone=UTC","root","root");
+        PreparedStatement ps = con.prepareStatement("INSERT INTO events (title, description, event_date) VALUES (?, ?, ?)");
+
+        ps.setString(1, e.getTitle());
+        ps.setString(2, e.getDescription());
+        ps.setDate(3, new java.sql.Date(e.getEventDate().getTime()));
+
+        int rs = ps.executeUpdate();
+
+        ps.close();
+        con.close();
+
+        if (rs > 0) {
+            System.out.println("✅ Event inserted successfully!");
+            return true;
+        } else {
+            System.out.println("⚠️ Failed to insert event!");
+            return false;
         }
-        return connection;
     }
 
-    public List<Event> getAllEvents() {
+    // ✅ Fetch all events
+    public List<Event> getAllEvents() throws ClassNotFoundException, SQLException {
+
         List<Event> events = new ArrayList<>();
-        try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement(SELECT_ALL_EVENTS)) {
 
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Event ev = new Event();
-                ev.setId(rs.getInt("id"));
-                ev.setTitle(rs.getString("title"));
-                ev.setDescription(rs.getString("description"));
-                ev.setEventDate(rs.getDate("event_date"));
-                ev.setLocation(rs.getString("location"));
-                events.add(ev);
-            }
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/durg?useSSL=false&serverTimezone=UTC",
+            "root",
+            "root"
+        );
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM events ORDER BY event_date ASC");
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Event e = new Event();
+            e.setId(rs.getInt("id"));
+            e.setTitle(rs.getString("title"));
+            e.setDescription(rs.getString("description"));
+            e.setEventDate(rs.getDate("event_date"));
+            events.add(e);
         }
+
+        rs.close();
+        ps.close();
+        con.close();
+
         return events;
     }
 }

@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/Durg/Dao/EventDao.java=UTF-8
 encoding//src/main/java/com/Durg/Dao/UserDao.java=UTF-8
+encoding//src/main/java/com/Durg/servlet/RejectServlet.java=UTF-8
+encoding//src/main/java/com/Durg/servlet/SendEmailServlet.java=UTF-8
 encoding//src/main/java/com/Durg/servlet/Usercontroller.java=UTF-8
 encoding//src/main/webapp/contact.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
