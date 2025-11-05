@@ -1,0 +1,14 @@
+# Use official Tomcat 9 image
+FROM tomcat9.0
+
+# Remove default webapps
+RUN rm -rf usrlocaltomcatwebapps
+
+# Copy your WAR file to Tomcat's webapps folder as ROOT.war
+COPY Durg.war usrlocaltomcatwebappsROOT.war
+
+# Expose port 8080 (Tomcat default)
+EXPOSE 8080
+
+# Start Tomcat
+CMD [catalina.sh, run]

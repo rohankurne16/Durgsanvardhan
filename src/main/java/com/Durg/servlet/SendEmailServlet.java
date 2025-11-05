@@ -36,7 +36,7 @@ public class SendEmailServlet extends HttpServlet {
         final String pass = "cdgupigdeethuham"; // App Password
 
         // 🔹 Subject
-        String subject = "🟢 नवीन सदस्य नोंदणी विनंती";
+        String subject = "नवीन सदस्य नोंदणी विनंती";
 
         // 🔹 Approve & Reject links
         String approveLink = "http://localhost:8080/Durg/Usercontroller?"
